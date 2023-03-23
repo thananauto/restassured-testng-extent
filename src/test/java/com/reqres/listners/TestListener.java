@@ -10,7 +10,7 @@ import org.testng.ITestResult;
 
 import static com.reqres.report.ExtentTestManager.getTest;
 
-public class TestListener implements ITestListener {
+public class TestListener implements ITestListener{
 
     private static String getTestMethodName(ITestResult iTestResult) {
         return iTestResult.getMethod().getConstructorOrMethod().getName();
@@ -41,6 +41,8 @@ public class TestListener implements ITestListener {
         Log.info(getTestMethodName(iTestResult) + " test is failed.");
         //Get driver from BaseTest and assign to local webdriver variable.
         Object testClass = iTestResult.getInstance();
+        String jiraId = iTestResult.getName();
+
        }
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
