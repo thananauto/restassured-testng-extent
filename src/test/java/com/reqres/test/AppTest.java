@@ -18,7 +18,7 @@ public class AppTest extends Base {
                 .statusCode(200);
     }
 
-    @Test(description = "Get the user id App")
+    @Test(description = "Get the user id App", testName = "CHA-32")
     public void get_User_Id(){
         given()
                 .header("accept","application/json")
@@ -26,7 +26,7 @@ public class AppTest extends Base {
                 .get("api/users/1")
                 .then()
                 .assertThat()
-                .statusCode(202);
+                .statusCode(200);
     }
 
 }
