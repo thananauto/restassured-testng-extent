@@ -26,7 +26,7 @@ public class AppTest extends Base {
                 .get("api/users/1")
                 .then()
                 .assertThat()
-                .statusCode(202);
+                .statusCode(200);
     }
 
 }
