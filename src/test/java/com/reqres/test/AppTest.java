@@ -18,6 +18,7 @@ public class AppTest extends Base {
                 .statusCode(200);
     }
 
+
     @Test(description = "Get the user id App of particluar")
     public void get_User_Id(){
         given()
