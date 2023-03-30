@@ -7,7 +7,7 @@ import static io.restassured.RestAssured.given;
 
 public class AppTest extends Base {
 
-    @Test(description = "Get the users list App")
+    @Test(description = "Get the users list App with details")
     public void get_Users(){
         given()
                 .header("accept","application/json")
@@ -18,7 +18,7 @@ public class AppTest extends Base {
                 .statusCode(200);
     }
 
-    @Test(description = "Get the user id App")
+    @Test(description = "Get the user id App of particluar")
     public void get_User_Id(){
         given()
                 .header("accept","application/json")
