@@ -14,8 +14,8 @@ public class ExtentManager {
             return extentReports;
         }
         extentReports = new ExtentReports();
-        ExtentSparkReporter reporter = new ExtentSparkReporter("target/reports/summary.html");
-        reporter.config().setReportName("Reqres Extent Report");
+        ExtentSparkReporter reporter = new ExtentSparkReporter("target/reports/index.html");
+        reporter.config().setReportName("Reqres Summary Report");
         extentReports.attachReporter(reporter);
         extentReports.setSystemInfo("Blog Name", "QA Test");
         extentReports.setSystemInfo("Author", "Thanan");

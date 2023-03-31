@@ -1,5 +1,5 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy static content to Pages
+name: restassured-testng-extent
 
 on:
   # Runs on pushes targeting the default branch
@@ -31,7 +31,9 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: checkout the repo
+         uses: actions/checkout@v3
+
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
@@ -51,6 +53,7 @@ jobs:
         with:
           # Upload entire repository
           path: './target/reports'
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2
