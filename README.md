@@ -10,3 +10,5 @@ This is the boiler plat code for automate the api using RestAssured
 
 
 For automation here we used https://reqres.in/
+
+All tests should be executed for each pull request, on merging with `main` branch the `extent-report` is deployed on githubpages. Find the last successfull execution report in below link: https://thananauto.github.io/restassured-testng-extent/index.html
