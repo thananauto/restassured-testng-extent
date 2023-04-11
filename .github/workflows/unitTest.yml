@@ -6,13 +6,13 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: UnitTest
+name: Unit Test
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "unitTest" ]
+    branches: [ "main" ]
 
   workflow_dispatch:
 

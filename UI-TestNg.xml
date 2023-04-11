@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite" thread-count="2">
-  <listeners>
-    <listener class-name="com.reqres.listners.RawListner"/>
-  </listeners>
+<suite name="Suite" thread-count="2" parallel="methods">
+
   <test  name="TestNG Sample Test" preserve-order="true">
     <classes>
-      <class name="com.reqres.test.AppTest"/>
-      <class name="com.reqres.test.HomeTest"/>
+      <class name="com.reqres.test.UiTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
