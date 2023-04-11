@@ -1,14 +1,19 @@
 package com.reqres.drivers;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
+import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 
 public class BrowserManager {
-    public static WebDriver doBrowserSetup(String browserName){
+    public static WebDriver doBrowserSetup(String browserName) throws MalformedURLException {
 
         WebDriver driver = null;
         if (browserName.equalsIgnoreCase("chrome")){
@@ -22,7 +27,10 @@ public class BrowserManager {
             chromeOptions.addArguments("--remote-allow-origins=*");
 
             //initialize driver for chrome
-            driver = new ChromeDriver(chromeOptions);
+           // driver = new ChromeDriver(chromeOptions);
+            DesiredCapabilities capabilities = new DesiredCapabilities();
+            capabilities.setCapability("browserName", "chrome");
+            driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 
             //maximize window
             driver.manage().window().maximize();

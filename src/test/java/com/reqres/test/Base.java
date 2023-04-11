@@ -5,6 +5,8 @@ import io.restassured.RestAssured;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
+import java.net.MalformedURLException;
+
 public class Base {
 
 
@@ -13,7 +15,7 @@ public class Base {
 
 
     @BeforeMethod
-    public void Setup(){
+    public void Setup() throws MalformedURLException {
         WebDriver driver = BrowserManager.doBrowserSetup("chrome");
         //set driver
         threadLocalDriver.set(driver);
