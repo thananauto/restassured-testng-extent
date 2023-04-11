@@ -1,4 +1,4 @@
-## restassured-testng-extent [![restassured-testng-extent](https://github.com/thananauto/restassured-testng-extent/actions/workflows/static.yml/badge.svg)](https://github.com/thananauto/restassured-testng-extent/actions/workflows/static.yml)
+## restassured-testng-extent [![End to End test](https://github.com/thananauto/restassured-testng-extent/actions/workflows/e2e.yml/badge.svg)](https://github.com/thananauto/restassured-testng-extent/actions/workflows/e2e.yml)
 
 This is the boiler plat code for automate the api using RestAssured
  Listeneres are used to captpure the event and display the details in extent report
