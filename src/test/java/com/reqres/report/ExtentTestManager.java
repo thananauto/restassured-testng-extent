@@ -11,6 +11,11 @@ public class ExtentTestManager {
     static Map<Integer, ExtentTest> extentTestMap = new HashMap<>();
     static ExtentReports extent  = ExtentManager.createExtentReports();
 
+
+    public static synchronized ExtentReports getExtentReport(){
+        return extent;
+    }
+
     /**
      * This will return the current test method thread ID
      * @return
@@ -29,5 +34,9 @@ public class ExtentTestManager {
         ExtentTest test = extent.createTest(testName, desc);
         extentTestMap.put((int) Thread.currentThread().getId(), test);
         return test;
+    }
+
+    public static synchronized void flush(){
+        extent.flush();
     }
 }

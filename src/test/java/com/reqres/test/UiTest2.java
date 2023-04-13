@@ -6,15 +6,15 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-public class UiTest extends Base{
+public class UiTest2 extends Base{
 
     @BeforeMethod
     public void launchUrl(){
         getDriver().get("https://www.saucedemo.com/");
     }
 
-    @Test(description = "Login and logout from the application")
-    public void loginAndLogout(){
+    @Test(description = "Login and safe logout from the application")
+    public void loginAndLogout2(){
 
         Login login = new Login(getDriver());
         login.login("standard_user", "secret_sauce");
@@ -24,8 +24,8 @@ public class UiTest extends Base{
         Assert.assertTrue(getDriver().getTitle().contains("Swag Labs"));
     }
 
-    @Test(description = "click any item and add to basket")
-    public void clickAndAddItem(){
+    @Test(description = "click any item image and click basket")
+    public void clickAndAddItem2(){
 
         Login login = new Login(getDriver());
         login.login("problem_user", "secret_sauce");

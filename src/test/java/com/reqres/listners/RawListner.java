@@ -4,7 +4,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.aventstack.extentreports.markuputils.ExtentColor;
 import com.aventstack.extentreports.markuputils.MarkupHelper;
-import com.reqres.report.ReportExtent;
+import com.reqres.report.ExtentTestManager;
 import com.reqres.test.Base;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
@@ -13,25 +13,20 @@ import org.testng.Reporter;
 
 public class RawListner extends Base implements ITestListener {
 
-    ReportExtent reportExtent;
-    ExtentTest extentTest;
     @Override
     public void onTestStart(ITestResult iTestResult) {
-        extentTest = reportExtent.createTest(iTestResult.getMethod().getMethodName());
+         ExtentTestManager.startTest(iTestResult.getMethod().getMethodName(), iTestResult.getMethod().getDescription());
     }
     @Override
     public void onTestSuccess(ITestResult iTestResult) {
-       // extentTest.log(Status.PASS, iTestResult.getMethod().getDescription());
         OnTestRun(iTestResult);
     }
     @Override
     public void onTestFailure(ITestResult iTestResult) {
-       // extentTest.log(Status.FAIL, iTestResult.getThrowable().fillInStackTrace());
         OnTestRun(iTestResult);
     }
     @Override
     public void onTestSkipped(ITestResult iTestResult) {
-       // extentTest.log(Status.SKIP, getTestMethodName(iTestResult));
         OnTestRun(iTestResult);
     }
     @Override
@@ -39,18 +34,18 @@ public class RawListner extends Base implements ITestListener {
     }
     @Override
     public void onStart(ITestContext iTestContext) {
-        reportExtent = new ReportExtent();
+
 
     }
     @Override
     public void onFinish(ITestContext iTestContext) {
-        reportExtent.flush();
-    }
-    private static String getTestMethodName(ITestResult iTestResult) {
-        return iTestResult.getMethod().getConstructorOrMethod().getName();
+        System.out.println("On Finish"+ iTestContext.getName());
+        ExtentTestManager.flush();
     }
 
+
     public void OnTestRun(ITestResult result){
+       ExtentTest extentTest = ExtentTestManager.getTest();
         if(result.getStatus()==ITestResult.FAILURE){
             extentTest.assignCategory(result.getInstanceName());
             extentTest.log(Status.FAIL,"Details: "+result.getMethod().getDescription());
@@ -64,7 +59,7 @@ public class RawListner extends Base implements ITestListener {
             }
         }
         else if(result.getStatus()==ITestResult.SUCCESS){
-            extentTest.log(Status.PASS,"TestClass:"+""+result.getMethod().getDescription());
+            extentTest.log(Status.PASS,"TestClass:"+result.getClass().getName()+" : "+result.getMethod().getDescription());
         }
         else if(result.getStatus()==ITestResult.SKIP){
             extentTest.log(Status.SKIP,"TestCaseSKIPPEDis"+""+result.getMethod().getDescription());
