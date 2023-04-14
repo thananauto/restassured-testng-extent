@@ -28,8 +28,8 @@ public class BrowserManager {
 
             //initialize driver for chrome
            // driver = new ChromeDriver(chromeOptions);
-            DesiredCapabilities capabilities = new DesiredCapabilities();
-            capabilities.setCapability("browserName", "chrome");
+           DesiredCapabilities capabilities = new DesiredCapabilities();
+           capabilities.setCapability("browserName", "chrome");
             driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
 
             //maximize window
