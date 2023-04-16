@@ -13,6 +13,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: cache the docker images
+        uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
+
       - name: Start selenoid
         uses: n-ton4/selenoid-github-action@master
         id: start-selenoid
@@ -23,9 +27,7 @@ jobs:
           browsers: chrome;firefox
           last-versions: 1
 
-      - name: cache the docker images
-        uses: satackey/action-docker-layer-caching@v0.0.11
-        continue-on-error: true
+
 
       - name: Check Selenoid has been started
         continue-on-error: true
