@@ -23,12 +23,12 @@ jobs:
           browsers: chrome;firefox
           last-versions: 1
 
-      -name: cache the docker images
-       uses: satackey/action-docker-layer-caching@v0.0.11
-          continue-on-error: true
+      - name: cache the docker images
+        uses: satackey/action-docker-layer-caching@v0.0.11
+        continue-on-error: true
 
       - name: Check Selenoid has been started
-         continue-on-error: true
+        continue-on-error: true
         run: curl http://localhost:4444/status
 
       - name: checkout the code
