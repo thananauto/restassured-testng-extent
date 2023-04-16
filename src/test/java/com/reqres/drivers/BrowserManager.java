@@ -37,7 +37,7 @@ public class BrowserManager {
             capabilities = new DesiredCapabilities();
             capabilities.setCapability("browserName", "firefox");
         }
-       //  driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), capabilities);
        //maximize window
             driver.manage().window().maximize();
 

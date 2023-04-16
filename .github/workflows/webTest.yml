@@ -1,10 +1,10 @@
 name: Web Test
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-      - 'test/**'
+
 
   workflow_dispatch:
 
