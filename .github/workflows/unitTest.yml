@@ -10,6 +10,9 @@ name: Unit Test
 
 on:
   push:
+    branches:
+      - main
+      - 'test/**'
 
   workflow_dispatch:
 

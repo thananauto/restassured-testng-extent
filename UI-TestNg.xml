@@ -4,10 +4,16 @@
   <listeners>
     <listener class-name="com.reqres.listners.RawListner"/>
   </listeners>
-  <test  name="TestNG Sample Test" preserve-order="true">
+  <test  name="Test from chrome browser" preserve-order="true">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="com.reqres.test.UiTest2"/>
+    </classes>
+  </test> <!-- Test -->
+  <test  name="Test from firefox browser" preserve-order="true">
+    <parameter name="browser" value="firefox"/>
     <classes>
       <class name="com.reqres.test.UiTest"/>
-      <class name="com.reqres.test.UiTest2"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

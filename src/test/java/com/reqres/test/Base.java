@@ -13,10 +13,10 @@ public class Base {
     protected static
     ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<>();
 
-
+    @Parameters("browser")
     @BeforeMethod
-    public void Setup() throws MalformedURLException {
-        WebDriver driver = BrowserManager.doBrowserSetup("chrome");
+    public void Setup(String browser) throws MalformedURLException {
+        WebDriver driver = BrowserManager.doBrowserSetup(browser);
         //set driver
         threadLocalDriver.set(driver);
         System.out.println("Before Test Thread ID: "+Thread.currentThread().getId());
