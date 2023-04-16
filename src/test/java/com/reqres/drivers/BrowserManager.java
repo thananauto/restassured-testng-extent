@@ -26,7 +26,7 @@ public class BrowserManager {
             chromeOptions.addArguments("-headed");
             chromeOptions.addArguments("--remote-allow-origins=*");
             //initialize driver for chrome
-            driver = new ChromeDriver(chromeOptions);
+           // driver = new ChromeDriver(chromeOptions);
              capabilities = new DesiredCapabilities();
             capabilities.setCapability("browserName", "chrome");
 
