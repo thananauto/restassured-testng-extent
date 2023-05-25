@@ -1,6 +1,6 @@
 name: End to End test
 on:
-  pull_request:
+  push:
     branches:
       - main
 
@@ -65,7 +65,18 @@ jobs:
           cache: maven
 
       - name: Start selenoid
-        uses: Xotabu4/selenoid-github-action@v2
+        uses: n-ton4/selenoid-github-action@master
+        id: start-selenoid
+        continue-on-error: false
+        with:
+          version: 1.10.1
+          args: -limit 10
+          browsers: chrome;firefox
+          last-versions: 1
+
+      - name: Check Selenoid has been started
+        continue-on-error: true
+        run: curl http://localhost:4444/status
 
       - name: Run UI Test
         run: mvn test -Pwebtest --file pom.xml
